@@ -1,10 +1,10 @@
 :root {
-  --bg: #dae1d1;
-  --waveform-bg: #028b5a;
-  --waveform-shadow: #2d2451;
-  --panel-bg: #7d6e78;
-  --pad-bg: #9aabbd;
-  --text: #ffffff;
+  --bg: #fdf6f0;
+  --waveform-bg: #b8e1dd;
+  --waveform-shadow: #8aa8c9;
+  --panel-bg: #d8c7e8;
+  --pad-bg: #ffe5ec;
+  --text: #5d5470;
 }
 
 *,
@@ -84,7 +84,7 @@ body {
   border: 0;
   border-radius: 5px;
   background: var(--pad-bg);
-  box-shadow: 8px -4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 8px -4px 4px rgba(93, 84, 112, 0.2);
   cursor: pointer;
   transition: transform 80ms ease, filter 80ms ease, box-shadow 80ms ease;
 }
@@ -92,7 +92,7 @@ body {
 .drum-button.is-active {
   transform: translateY(1px) scale(0.99);
   filter: brightness(0.92);
-  box-shadow: 4px -2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px -2px 4px rgba(93, 84, 112, 0.2);
 }
 
 .drum-button:focus-visible {
