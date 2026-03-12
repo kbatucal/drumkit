@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drumkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="drumkit" data-node-id="1:2">
+      <section class="waveform-visualizer" data-node-id="1:26"></section>
+
+      <section class="instrument-pads" data-node-id="1:25">
+        <div class="instrument-row" data-node-id="1:14">
+          <p class="row-title" data-node-id="1:9">Kick + Snare</p>
+          <div class="buttons" data-node-id="1:11">
+            <button class="drum-button" type="button" aria-label="Kick" data-sound="kick" data-key="q" data-node-id="1:3"></button>
+            <button class="drum-button" type="button" aria-label="Snare" data-sound="snare" data-key="w" data-node-id="1:31"></button>
+          </div>
+        </div>
+
+        <div class="instrument-row" data-node-id="1:15">
+          <p class="row-title" data-node-id="1:16">Toms</p>
+          <div class="buttons" data-node-id="1:17">
+            <button class="drum-button" type="button" aria-label="Tom 1" data-sound="tom-low" data-key="a" data-node-id="1:18"></button>
+            <button class="drum-button" type="button" aria-label="Tom 2" data-sound="tom-high" data-key="s" data-node-id="1:19"></button>
+          </div>
+        </div>
+
+        <div class="instrument-row" data-node-id="1:20">
+          <p class="row-title" data-node-id="1:21">Hats</p>
+          <div class="buttons" data-node-id="1:22">
+            <button class="drum-button" type="button" aria-label="Closed Hat" data-sound="hat-closed" data-key="z" data-node-id="1:23"></button>
+            <button class="drum-button" type="button" aria-label="Open Hat" data-sound="hat-open" data-key="x" data-node-id="1:24"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
