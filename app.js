@@ -1,6 +1,5 @@
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 const audioContext = new AudioCtx();
-const pads = Array.from(document.querySelectorAll(".drum-button"));
 
 function createNoiseBuffer(seconds = 0.2) {
   const buffer = audioContext.createBuffer(1, seconds * audioContext.sampleRate, audioContext.sampleRate);
@@ -134,19 +133,36 @@ async function playPad(button) {
 
   play();
   activatePad(button);
+  if (typeof window.recordPadHit === "function") window.recordPadHit(sound);
 }
 
-pads.forEach((button) => {
-  button.addEventListener("click", () => {
-    playPad(button);
-  });
-});
+window.playSound = function (sound) {
+  const fn = soundMap[sound];
+  if (fn) {
+    if (audioContext.state === "suspended") audioContext.resume();
+    fn();
+  }
+};
 
-document.addEventListener("keydown", (event) => {
-  const key = event.key.toLowerCase();
-  const button = pads.find((pad) => pad.dataset.key === key);
-  if (!button || event.repeat) {
+function initDrumkit(user) {
+  if (window._drumkitInitialized) {
+    // User may have changed (e.g. guest → signed in), so always update beats toolbar
+    if (typeof window.initBeats === "function") window.initBeats(user || null);
     return;
   }
-  playPad(button);
-});
+  window._drumkitInitialized = true;
+
+  if (typeof window.initBeats === "function") window.initBeats(user || null);
+
+  const pads = Array.from(document.querySelectorAll(".drum-button"));
+  pads.forEach((button) => {
+    button.addEventListener("click", () => playPad(button));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+    const button = pads.find((pad) => pad.dataset.key === key);
+    if (!button || event.repeat) return;
+    playPad(button);
+  });
+}

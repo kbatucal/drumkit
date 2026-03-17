@@ -99,3 +99,1113 @@ body {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
+
+/* Auth / Login */
+.hidden {
+  display: none !important;
+}
+
+.auth-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 32px;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(93, 84, 112, 0.15);
+}
+
+.auth-title {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.8;
+  text-align: center;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid rgba(93, 84, 112, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.auth-tab.active {
+  background: var(--pad-bg);
+  border-color: transparent;
+}
+
+.auth-tab:hover:not(.active) {
+  background: rgba(93, 84, 112, 0.08);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input {
+  padding: 12px 16px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.auth-form input::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--waveform-shadow);
+}
+
+.auth-error {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #c55;
+}
+
+.auth-btn {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter 0.2s, transform 80ms ease;
+}
+
+.auth-btn:hover {
+  filter: brightness(0.95);
+}
+
+.auth-btn:active {
+  transform: scale(0.98);
+}
+
+.auth-btn-primary {
+  background: var(--pad-bg);
+  color: var(--text);
+}
+
+.auth-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(93, 84, 112, 0.4);
+  color: var(--text);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(93, 84, 112, 0.2);
+}
+
+.auth-divider span {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 16px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(93, 84, 112, 0.25);
+}
+
+.auth-divider span {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.auth-setup-msg {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.auth-setup-msg code {
+  padding: 2px 6px;
+  background: rgba(93, 84, 112, 0.15);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.drumkit-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drumkit-header {
+  width: 100%;
+  max-width: 440px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.user-email {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Beats toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  margin-bottom: 8px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.beats-btn {
+  padding: 8px 16px;
+  border: 1px solid rgba(93, 84, 112, 0.4);
+  border-radius: 8px;
+  background: var(--pad-bg);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.beats-btn:hover {
+  filter: brightness(0.95);
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+}
+
+.beats-save-section {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 8px;
+  font-size: 14px;
+  width: 140px;
+}
+
+.beats-section {
+  margin-top: 8px;
+}
+
+.beats-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.beats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.beats-item-name {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.beats-item-play {
+  background: var(--waveform-bg);
+  color: white;
+}
+
+.beats-item-delete {
+  background: rgba(200, 100, 100, 0.8);
+  color: white;
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Beats save toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  padding: 16px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.beats-btn {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--pad-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.beats-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+}
+
+.beats-save-section {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 6px;
+  font-size: 14px;
+  width: 140px;
+  font-family: inherit;
+}
+
+.beats-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.beats-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.beats-list {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.beats-item-name {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--pad-bg);
+  color: var(--text);
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Beats save/load toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  padding: 16px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.beats-btn {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--pad-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.beats-btn:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.beats-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+}
+
+.beats-save-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 140px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.beats-label {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.beats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+}
+
+.beats-item-name {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--pad-bg);
+  color: var(--text);
+}
+
+.beats-item-play:hover,
+.beats-item-delete:hover {
+  filter: brightness(0.9);
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.7;
+  padding: 8px 0;
+}
+
+/* Beats save toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  margin-bottom: 8px;
+  padding: 16px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.beats-btn {
+  padding: 8px 16px;
+  border: 1px solid rgba(93, 84, 112, 0.35);
+  border-radius: 6px;
+  background: var(--pad-bg);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.beats-btn:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+  border-color: transparent;
+}
+
+.beats-save-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  width: 140px;
+}
+
+.beats-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.beats-list {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 6px;
+}
+
+.beats-item-name {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--pad-bg);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.beats-item-play:hover,
+.beats-item-delete:hover {
+  filter: brightness(0.95);
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Beats save toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  padding: 16px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.beats-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.beats-btn {
+  padding: 10px 18px;
+  border: 1px solid rgba(93, 84, 112, 0.35);
+  border-radius: 8px;
+  background: var(--pad-bg);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.beats-btn:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.beats-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+  border-color: transparent;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.85; }
+}
+
+.beats-save-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.beats-save-section input {
+  padding: 10px 14px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  width: 140px;
+}
+
+.beats-section {
+  margin-top: 8px;
+}
+
+.beats-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.beats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  gap: 8px;
+}
+
+.beats-item-name {
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.2s;
+}
+
+.beats-item-play {
+  background: var(--waveform-bg);
+  color: var(--text);
+}
+
+.beats-item-delete {
+  background: rgba(200, 100, 100, 0.3);
+  color: var(--text);
+}
+
+.beats-item-play:hover,
+.beats-item-delete:hover {
+  filter: brightness(0.9);
+}
+
+/* Beats save toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  padding: 16px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.beats-btn {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  background: var(--pad-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.beats-btn:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.beats-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.beats-btn.recording {
+  background: #e8a0a0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.beats-save-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  width: 140px;
+}
+
+.beats-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.beats-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.beats-list {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.beats-error {
+  color: #c55;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+}
+
+.beats-item-name {
+  font-size: 13px;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.2s;
+}
+
+.beats-item-play {
+  background: var(--pad-bg);
+  color: var(--text);
+}
+
+.beats-item-delete {
+  background: rgba(197, 85, 85, 0.3);
+  color: #a55;
+}
+
+.beats-item-play:hover,
+.beats-item-delete:hover {
+  filter: brightness(0.9);
+}
+
+/* Beats save toolbar (logged-in only) */
+.beats-toolbar {
+  width: 100%;
+  max-width: 408px;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beats-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.beats-btn {
+  padding: 10px 18px;
+  border: 1px solid rgba(93, 84, 112, 0.4);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, filter 0.2s;
+}
+
+.beats-btn:hover:not(:disabled) {
+  background: rgba(93, 84, 112, 0.1);
+}
+
+.beats-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.beats-btn.recording {
+  background: #c55;
+  border-color: #c55;
+  color: #fff;
+}
+
+.beats-save-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.beats-save-section input {
+  padding: 8px 12px;
+  border: 1px solid rgba(93, 84, 112, 0.25);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  width: 140px;
+}
+
+.beats-section {
+  width: 100%;
+}
+
+.beats-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.beats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.beats-loading,
+.beats-empty,
+.beats-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.beats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(93, 84, 112, 0.08);
+  border-radius: 8px;
+}
+
+.beats-item-name {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.beats-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.beats-item-play,
+.beats-item-delete {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(93, 84, 112, 0.2);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.beats-item-play:hover,
+.beats-item-delete:hover {
+  background: rgba(93, 84, 112, 0.35);
+}

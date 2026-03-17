@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drumkit</title>
+    <title>Beatmaker – Create & Save Drum Beats Online</title>
+    <meta name="description" content="Create drum beats in your browser. Record, save, and play back your beats. Sign up free to save your creations." />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta property="og:title" content="Beatmaker – Create & Save Drum Beats Online" />
+    <meta property="og:description" content="Create drum beats in your browser. Record, save, and play back your beats." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Beatmaker – Create & Save Drum Beats Online" />
+    <meta name="twitter:description" content="Create drum beats in your browser. Record, save, and play back your beats." />
+    <meta name="robots" content="index, follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,35 +22,70 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="drumkit" data-node-id="1:2">
-      <section class="waveform-visualizer" data-node-id="1:26"></section>
-
-      <section class="instrument-pads" data-node-id="1:25">
-        <div class="instrument-row" data-node-id="1:14">
-          <p class="row-title" data-node-id="1:9">Kick + Snare</p>
-          <div class="buttons" data-node-id="1:11">
-            <button class="drum-button" type="button" aria-label="Kick" data-sound="kick" data-key="q" data-node-id="1:3"></button>
-            <button class="drum-button" type="button" aria-label="Snare" data-sound="snare" data-key="w" data-node-id="1:31"></button>
-          </div>
+    <div id="auth-screen" class="auth-screen">
+      <div class="auth-card">
+        <h1 class="auth-title">Beatmaker</h1>
+        <p class="auth-subtitle">Sign in to play</p>
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab active" id="tab-signin">Sign in</button>
+          <button type="button" class="auth-tab" id="tab-signup">Sign up</button>
         </div>
-
-        <div class="instrument-row" data-node-id="1:15">
-          <p class="row-title" data-node-id="1:16">Toms</p>
-          <div class="buttons" data-node-id="1:17">
-            <button class="drum-button" type="button" aria-label="Tom 1" data-sound="tom-low" data-key="a" data-node-id="1:18"></button>
-            <button class="drum-button" type="button" aria-label="Tom 2" data-sound="tom-high" data-key="s" data-node-id="1:19"></button>
-          </div>
+        <p id="auth-error" class="auth-error hidden"></p>
+        <form id="signin-form" class="auth-form">
+          <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+          <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
+          <button type="submit" class="auth-btn auth-btn-primary">Sign in</button>
+        </form>
+        <form id="signup-form" class="auth-form hidden">
+          <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+          <input type="password" name="password" placeholder="Password (min 6 chars)" required autocomplete="new-password" minlength="6" />
+          <button type="submit" class="auth-btn auth-btn-primary">Create account</button>
+        </form>
+        <div class="auth-divider">
+          <span>or</span>
         </div>
+        <button type="button" class="auth-btn auth-btn-outline" id="guest-continue">Continue as guest</button>
+      </div>
+    </div>
 
-        <div class="instrument-row" data-node-id="1:20">
-          <p class="row-title" data-node-id="1:21">Hats</p>
-          <div class="buttons" data-node-id="1:22">
-            <button class="drum-button" type="button" aria-label="Closed Hat" data-sound="hat-closed" data-key="z" data-node-id="1:23"></button>
-            <button class="drum-button" type="button" aria-label="Open Hat" data-sound="hat-open" data-key="x" data-node-id="1:24"></button>
+    <div id="drumkit-screen" class="drumkit-screen hidden">
+      <header class="drumkit-header">
+        <span id="user-email" class="user-email"></span>
+        <button type="button" class="auth-btn auth-btn-outline" id="signout-btn">Sign out</button>
+      </header>
+      <main class="drumkit" data-node-id="1:2">
+        <div id="beats-toolbar" class="beats-toolbar hidden"></div>
+        <section class="waveform-visualizer" data-node-id="1:26"></section>
+        <section class="instrument-pads" data-node-id="1:25">
+          <div class="instrument-row" data-node-id="1:14">
+            <p class="row-title" data-node-id="1:9">Kick + Snare</p>
+            <div class="buttons" data-node-id="1:11">
+              <button class="drum-button" type="button" aria-label="Kick" data-sound="kick" data-key="q" data-node-id="1:3"></button>
+              <button class="drum-button" type="button" aria-label="Snare" data-sound="snare" data-key="w" data-node-id="1:31"></button>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+          <div class="instrument-row" data-node-id="1:15">
+            <p class="row-title" data-node-id="1:16">Toms</p>
+            <div class="buttons" data-node-id="1:17">
+              <button class="drum-button" type="button" aria-label="Tom 1" data-sound="tom-low" data-key="a" data-node-id="1:18"></button>
+              <button class="drum-button" type="button" aria-label="Tom 2" data-sound="tom-high" data-key="s" data-node-id="1:19"></button>
+            </div>
+          </div>
+          <div class="instrument-row" data-node-id="1:20">
+            <p class="row-title" data-node-id="1:21">Hats</p>
+            <div class="buttons" data-node-id="1:22">
+              <button class="drum-button" type="button" aria-label="Closed Hat" data-sound="hat-closed" data-key="z" data-node-id="1:23"></button>
+              <button class="drum-button" type="button" aria-label="Open Hat" data-sound="hat-open" data-key="x" data-node-id="1:24"></button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./auth.js"></script>
     <script src="./app.js"></script>
+    <script src="./beats.js"></script>
   </body>
 </html>
