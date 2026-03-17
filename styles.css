@@ -79,14 +79,24 @@ body {
 }
 
 .drum-button {
-  width: 164px;
-  height: 164px;
+  flex: 1 1 0;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 164px;
+  max-height: 164px;
+  aspect-ratio: 1;
   border: 0;
   border-radius: 5px;
   background: var(--pad-bg);
   box-shadow: 8px -4px 4px rgba(93, 84, 112, 0.2);
   cursor: pointer;
   transition: transform 80ms ease, filter 80ms ease, box-shadow 80ms ease;
+}
+
+/* Rows with 3 pads use smaller size to fit */
+.buttons:has(.drum-button:nth-child(3):last-child) .drum-button {
+  max-width: 110px;
+  max-height: 110px;
 }
 
 .drum-button.is-active {

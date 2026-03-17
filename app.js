@@ -104,13 +104,116 @@ function playHat(isOpen = false) {
   noise.stop(now + (isOpen ? 0.25 : 0.08));
 }
 
+function playClap() {
+  const now = audioContext.currentTime;
+  const noise = audioContext.createBufferSource();
+  const noiseFilter = audioContext.createBiquadFilter();
+  const noiseGain = audioContext.createGain();
+  noise.buffer = noiseBuffer;
+  noiseFilter.type = "bandpass";
+  noiseFilter.frequency.value = 2000;
+  noiseFilter.Q.value = 0.5;
+  envelopeGain(noiseGain, now, 0.002, 0.18, 0.6);
+  noise.connect(noiseFilter);
+  noiseFilter.connect(noiseGain);
+  noiseGain.connect(audioContext.destination);
+  noise.start(now);
+  noise.stop(now + 0.2);
+
+  const tone = audioContext.createOscillator();
+  const toneGain = audioContext.createGain();
+  tone.type = "sine";
+  tone.frequency.setValueAtTime(180, now);
+  tone.frequency.exponentialRampToValueAtTime(80, now + 0.08);
+  envelopeGain(toneGain, now, 0.001, 0.06, 0.25);
+  tone.connect(toneGain);
+  toneGain.connect(audioContext.destination);
+  tone.start(now);
+  tone.stop(now + 0.1);
+}
+
+function playRide() {
+  const now = audioContext.currentTime;
+  const noise = audioContext.createBufferSource();
+  const bandpass = audioContext.createBiquadFilter();
+  const gain = audioContext.createGain();
+  noise.buffer = noiseBuffer;
+  bandpass.type = "bandpass";
+  bandpass.frequency.value = 6000;
+  bandpass.Q.value = 0.4;
+  envelopeGain(gain, now, 0.003, 0.4, 0.2);
+  noise.connect(bandpass);
+  bandpass.connect(gain);
+  gain.connect(audioContext.destination);
+  noise.start(now);
+  noise.stop(now + 0.45);
+}
+
+function playCowbell() {
+  const now = audioContext.currentTime;
+  const osc1 = audioContext.createOscillator();
+  const osc2 = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  osc1.type = "sine";
+  osc2.type = "sine";
+  osc1.frequency.setValueAtTime(800, now);
+  osc2.frequency.setValueAtTime(1200, now);
+  osc1.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+  osc2.frequency.exponentialRampToValueAtTime(900, now + 0.15);
+  envelopeGain(gain, now, 0.001, 0.12, 0.5);
+  osc1.connect(gain);
+  osc2.connect(gain);
+  gain.connect(audioContext.destination);
+  osc1.start(now);
+  osc2.start(now);
+  osc1.stop(now + 0.16);
+  osc2.stop(now + 0.16);
+}
+
+function playTambourine() {
+  const now = audioContext.currentTime;
+  const noise = audioContext.createBufferSource();
+  const bandpass = audioContext.createBiquadFilter();
+  const gain = audioContext.createGain();
+  noise.buffer = noiseBuffer;
+  bandpass.type = "bandpass";
+  bandpass.frequency.value = 7000;
+  bandpass.Q.value = 1.2;
+  envelopeGain(gain, now, 0.001, 0.08, 0.4);
+  noise.connect(bandpass);
+  bandpass.connect(gain);
+  gain.connect(audioContext.destination);
+  noise.start(now);
+  noise.stop(now + 0.1);
+}
+
+function playRimshot() {
+  const now = audioContext.currentTime;
+  const osc = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(280, now);
+  osc.frequency.exponentialRampToValueAtTime(140, now + 0.06);
+  envelopeGain(gain, now, 0.001, 0.08, 0.65);
+  osc.connect(gain);
+  gain.connect(audioContext.destination);
+  osc.start(now);
+  osc.stop(now + 0.1);
+}
+
 const soundMap = {
   kick: () => playKick(),
   snare: () => playSnare(),
   "tom-low": () => playTom(180, 95),
   "tom-high": () => playTom(260, 145),
+  "tom-floor": () => playTom(120, 65),
   "hat-closed": () => playHat(false),
   "hat-open": () => playHat(true),
+  clap: () => playClap(),
+  ride: () => playRide(),
+  cowbell: () => playCowbell(),
+  tambourine: () => playTambourine(),
+  rimshot: () => playRimshot(),
 };
 
 function activatePad(button) {
